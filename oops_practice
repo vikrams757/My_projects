@@ -1,0 +1,133 @@
+/* Basic class function:
+#include <iostream>
+using namespace std;
+
+class circle
+{
+private:
+    float radius;
+public:
+    float area(){
+    cout<<"\nEnter the radius"<<endl;
+    cin>>radius;
+    return (3.14*(radius*radius));
+    }ff
+};
+
+int main()
+{
+    circle o;
+    float a;
+    a = o.area();
+    cout<<"The area of circle"<<a;
+}
+*/
+/* Access specifiers: "Public,Private,Protected"
+#include <iostream>
+using namespace std;
+
+class info
+{
+private:
+string name;
+    int age;
+public:
+    void getDate()
+    {
+        cout<<"Enter name & age:"<<endl;
+       cin>>name;
+    cin>>age;
+    }
+    void display()
+    {
+    cout<<"Name :"<<name<<endl;
+    cout<<"Age :"<<age<<endl;
+    }
+
+};
+
+int main()
+{
+    info a;
+    a.getDate();
+    a.display();
+
+}
+
+#include <iostream>
+using namespace std;
+
+class info
+{
+private:
+string name;
+    int age;
+public:
+    void getDate()
+    {
+        cout<<"Enter name & age:"<<endl;
+       cin>>name;
+    cin>>age;
+    }
+    void display();
+};
+void info::display()
+    {
+    cout<<"Name :"<<name<<endl;
+    cout<<"Age :"<<age<<endl;
+    }
+int main()
+{
+    info a;
+    a.getDate();
+    a.display();
+
+}
+
+Constructor is valid value created to data members of class when an object is created.
+It is an special "member function" of class.
+Default constructor, parameterized constructor & copy constructor
+*/
+#include <iostream>
+using namespace std;
+
+class info
+{
+private:
+string name;
+    int age;
+public:
+    info() // default constructor  declaration
+    {
+        name = "Vikram";
+        age = 21;
+        //cout<<"Constructor called"<<endl;
+    }
+     info(string name1,int age1) // default constructor  declaration
+    {
+        name = name1 ;
+        age = age1;
+        //cout<<"Constructor called"<<endl;
+    }
+     info(info &t) // default constructor  declaration
+    {
+        name = t.name ;
+        age = t.age;
+        //cout<<"Constructor called"<<endl;
+    }
+
+    void display(string name,int age);
+};
+void info::display(string name,int age) //scope resolution operatore for defining a function definition outside the class.
+    {
+    cout<<"Name :"<<name<<endl;
+    cout<<"Age :"<<age<<endl;
+    }
+int main()
+{
+    info a;
+    info a1(a);
+    a.display("vikram",21);//parameterized constructor
+    //a.getDate();
+    a1.display();
+}
